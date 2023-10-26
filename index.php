@@ -6,14 +6,16 @@ function checkCircleFigure(string $figure): bool {
 	return in_array($figure, CIRCLE_FIGURES);
 }
 
-function getCircleFiguresNumber(string $number) {
+function getCircleFiguresNumber(string $number): int {
 	$number_array = str_split($number);
+	$circle_figures_counter = 0;
 	foreach($number_array as $figure) {
-		var_dump(checkCircleFigure($figure));
-	}	
+		if(checkCircleFigure($figure)) ++$circle_figures_counter;
+	}
+	return $circle_figures_counter;	
 }
 
 $number = readline("Give me the number to check");
-getCircleFiguresNumber($number);
+echo $number." has ".getCircleFiguresNumber($number)." circle figure(s).";
 
 ?>
